@@ -6,9 +6,10 @@
 
 ## ダウンロード
 
-[**利用者向けZIPをダウンロード**](https://github.com/samiosu/tyrano-spritestudio-bridge/raw/main/releases/v0.1.1/tyrano-spritestudio-0.1.1.zip)して、解凍してください。
+[**利用者向けZIPをダウンロード**](https://github.com/samiosu/tyrano-spritestudio-bridge/releases/download/v0.1.1/tyrano-spritestudio-0.1.1.zip)して、解凍してください。
 ZIPに入っている [はじめに.txt](はじめに.txt) でも導入手順を読めます。
 [リリース情報・ソースZIP](https://github.com/samiosu/tyrano-spritestudio-bridge/releases/tag/v0.1.1) は、こちらから確認できます。
+リリースの「Assets」から選ぶ場合は、`tyrano-spritestudio-0.1.1.zip` がゲームへの導入用です。
 
 ## 導入は3ステップ
 

@@ -54,10 +54,24 @@ SHA-256の確認は任意です。通常の導入手順には含めません。
 
 [開発手順](DEVELOPMENT.md) に従ってビルド・確認・ZIP作成を行います。
 同梱資料だけを変更する場合も、ZIPとハッシュを作り直してください。
-作成したZIPとハッシュを `releases/v0.1.1/` に反映し、Releaseの説明とダウンロードリンクを更新します。
-Releaseでは、リポジトリ内の配布ZIPを直接ダウンロードできるリンクを使用します。
-ZIPのリンクは `/raw/<コミット>/releases/v0.1.1/<ファイル名>`、資料は `/blob/<コミット>/<パス>` の形式で、
-配布物と一致するコミットに固定します。
+作成したZIPとハッシュを `releases/v0.1.1/` に反映します。
+Release作成後、次の3ファイルを「Assets」に添付します。
+リポジトリへの保存や本文へのリンクだけでは、Releaseの添付ファイル欄には表示されません。
+
+```sh
+gh release upload v0.1.1 \
+  releases/v0.1.1/tyrano-spritestudio-0.1.1.zip \
+  releases/v0.1.1/tyrano-spritestudio-0.1.1-source.zip \
+  releases/v0.1.1/SHA256SUMS.txt \
+  --repo samiosu/tyrano-spritestudio-bridge
+```
+
+その後、Releaseの説明とダウンロードリンクを更新します。
+添付ファイルへのリンクは `/releases/download/<タグ>/<ファイル名>` の形式を使用します。
+資料は `/blob/<コミット>/<パス>` の形式で、配布物と一致するコミットに固定します。
+「Assets」に3ファイルが表示され、ダウンロードしたZIPとハッシュが配布元と一致することを確認します。
+GitHubが自動生成する `Source code (zip)` と `Source code (tar.gz)` は、リポジトリ全体のアーカイブです。
+ゲームへの導入用には `tyrano-spritestudio-0.1.1.zip` を案内してください。
 
 新しいバージョンを配布する場合は、バージョン番号・変更履歴・配布先フォルダーを更新し、
 確認済みのコミットに対応するタグとReleaseを作成してください。

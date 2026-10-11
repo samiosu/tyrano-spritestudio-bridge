@@ -5,10 +5,12 @@
 
 ## ダウンロード
 
-[**利用者向けZIPをダウンロード**](https://github.com/samiosu/tyrano-spritestudio-bridge/raw/main/releases/v0.1.1/tyrano-spritestudio-0.1.1.zip)
+[**利用者向けZIPをダウンロード**](https://github.com/samiosu/tyrano-spritestudio-bridge/releases/download/v0.1.1/tyrano-spritestudio-0.1.1.zip)
 
 上のリンクからZIPを保存し、解凍してください。
 最初に「**はじめに.txt**」を開くと、コピー先と貼り付ける行が分かります。
+下の「Assets」では、`tyrano-spritestudio-0.1.1.zip` がゲームへの導入用です。
+`Source code (zip)` は、GitHubが自動生成するリポジトリ全体のZIPです。
 
 複数回の再生を待つ指定が最初の1回で解除される不具合を修正しました。
 以前の版を使っている場合は、このZIPをダウンロードしてください。
@@ -41,12 +43,12 @@ GitHubのIssue・Pull Requestには対応する場合があります。返信・
 <details>
 <summary>開発者向け：ソース・内部仕様・確認用ファイル</summary>
 
-- [ソースZIP](https://github.com/samiosu/tyrano-spritestudio-bridge/raw/main/releases/v0.1.1/tyrano-spritestudio-0.1.1-source.zip)
+- [ソースZIP](https://github.com/samiosu/tyrano-spritestudio-bridge/releases/download/v0.1.1/tyrano-spritestudio-0.1.1-source.zip)
 - [内部仕様・開発手順](https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/DEVELOPMENT.md)
 - [タグ一覧](https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/TAGS.md)
 - [公開前の最終確認](https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/FINAL-REVIEW.md)
 - [検証記録](https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/VALIDATION.md)
-- [SHA-256ハッシュ（ZIPの破損・取り違えを確認したい場合のみ）](https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/releases/v0.1.1/SHA256SUMS.txt)
+- [SHA-256ハッシュ（ZIPの破損・取り違えを確認したい場合のみ）](https://github.com/samiosu/tyrano-spritestudio-bridge/releases/download/v0.1.1/SHA256SUMS.txt)
 
 ソースZIPはリンクから直接保存できます。ハッシュの確認は任意です。
 
