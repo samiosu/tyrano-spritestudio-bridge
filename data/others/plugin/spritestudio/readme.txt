@@ -42,8 +42,8 @@ index.htmlをダブルクリックして直接開く方法には対応してい�
 https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/USAGE.md
 詳しい設定は docs/TAGS.md、内部仕様は docs/DEVELOPMENT.md を参照してください。
 
-ティラノスクリプトV603bのブラウザ版（Chromium 154）で確認しています。
-ティラノスタジオ、PCアプリ、スマートフォンなど、その他の環境は未確認です。
+ティラノスクリプトV603bを、Linux環境のChromium・Firefox・WebKitで確認しています。
+スマートフォン画面の模擬操作も確認済みです。Windows・macOS、スマートフォン実機、ティラノスタジオ、PCアプリは未確認です。
 
 同梱ライブラリにはそれぞれの条件があります。再配布時もlicensesフォルダーを含めてください。
 SpriteStudioの利用条件と、ご自身が使う素材の権利も確認してください。

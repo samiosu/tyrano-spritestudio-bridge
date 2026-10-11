@@ -1,4 +1,4 @@
-import { chromium } from 'playwright-core';
+import { chromium, firefox, webkit, devices } from 'playwright-core';
 import assert from 'node:assert/strict';
 import http from 'node:http';
 import { cp, mkdir, readFile, writeFile, stat } from 'node:fs/promises';
@@ -6,7 +6,15 @@ import { resolve, extname, join } from 'node:path';
 
 const engine = process.env.TYRANO_TEST_ROOT;
 if (!engine) throw new Error('TYRANO_TEST_ROOT に公式ティラノV6のプロジェクトディレクトリを指定してください。');
-const root = resolve('.test-work/browser');
+const browserName = process.env.TYRANO_TEST_BROWSER || 'chromium';
+if (!['chromium', 'firefox', 'webkit'].includes(browserName)) throw new Error('TYRANO_TEST_BROWSER は chromium / firefox / webkit で指定してください。');
+const device = process.env.TYRANO_TEST_DEVICE || 'desktop';
+if (!['desktop', 'mobile'].includes(device)) throw new Error('TYRANO_TEST_DEVICE は desktop / mobile で指定してください。');
+if (device === 'mobile' && browserName === 'firefox') throw new Error('Firefoxのモバイル模擬はこのテストの対象外です。');
+const profile = `${browserName}-${device}`;
+const root = resolve(`.test-work/browser-${profile}`);
+const artifactRoot = resolve(`artifacts/${profile}`);
+await mkdir(artifactRoot, { recursive: true });
 await mkdir(root, { recursive: true });
 await cp(engine, root, { recursive: true });
 await cp('data/others/plugin/spritestudio', join(root, 'data/others/plugin/spritestudio'), { recursive: true });
@@ -20,7 +28,7 @@ await writeFile(join(root, 'data/scenario/first.ks'), '[plugin name="spritestudi
 await cp('examples/make.ks', join(root, 'data/scenario/make.ks'));
 const configPath = join(root, 'data/system/Config.tjs');
 let config = await readFile(configPath, 'utf8');
-config = config.replace(/;projectID\s*=.*?;/, ';projectID = spritestudio_bridge_browser_test;');
+config = config.replace(/;projectID\s*=.*?;/, `;projectID = spritestudio_bridge_${profile};`);
 await writeFile(configPath, config);
 const types = { '.js': 'text/javascript', '.html': 'text/html', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.ssfb': 'application/octet-stream' };
 const server = http.createServer(async (request, response) => {
@@ -33,12 +41,24 @@ const server = http.createServer(async (request, response) => {
   } catch { response.writeHead(404).end(); }
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
-const browser = await chromium.launch({
-  executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium',
-  headless: true,
-  args: ['--no-sandbox', '--disable-dev-shm-usage', '--enable-unsafe-swiftshader', '--use-gl=angle', '--use-angle=swiftshader'],
+const browserType = { chromium, firefox, webkit }[browserName];
+const browser = await browserType.launch({
+  headless: process.env.TYRANO_TEST_HEADED !== 'true',
+  ...(browserName === 'chromium' ? {
+    executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium',
+    args: ['--no-sandbox', '--disable-dev-shm-usage', '--enable-unsafe-swiftshader', '--use-gl=angle', '--use-angle=swiftshader'],
+  } : browserName === 'firefox' ? {
+    firefoxUserPrefs: { 'webgl.force-enabled': true, 'webgl.disabled': false,
+      ...(process.env.TYRANO_TEST_NO_SANDBOX === 'true' ? {
+        'security.sandbox.content.level': 0, 'security.sandbox.socket.process.level': 0,
+        'security.sandbox.rdd.level': 0, 'security.sandbox.gpu.level': 0,
+      } : {}),
+    },
+  } : process.env.TYRANO_WEBKIT_PATH ? { executablePath: process.env.TYRANO_WEBKIT_PATH } : {}),
 });
-const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
+const page = await browser.newPage(device === 'mobile'
+  ? devices[browserName === 'webkit' ? 'iPhone 13' : 'Pixel 7']
+  : { viewport: { width: 1280, height: 720 } });
 const exceptions = [];
 const messages = [];
 page.on('pageerror', error => exceptions.push(error.message));
@@ -206,15 +226,42 @@ try {
     await m.show({ name: 'logo', pack: 'demo', animation: 'idle', x: '640', y: '260' });
   });
   console.log('PASS missing SSFB/texture errors, exact tag advancement, canceled waits after load');
-  await mkdir('artifacts', { recursive: true });
-  await page.screenshot({ path: 'artifacts/tyrano-v6.png' });
+  await page.screenshot({ path: join(artifactRoot, 'tyrano-v6.png') });
+  // Run the actual six-line installation example, including click/touch input.
+  const quick = (await readFile('README.md', 'utf8')).match(/```tyranoscript\n([\s\S]*?)\n```/)[1];
+  await writeFile(join(root, 'data/scenario/first.ks'), quick + '\n[s]\n');
+  await page.reload();
+  await page.waitForFunction(() => {
+    const kag = window.TYRANO?.kag;
+    try { return kag.tmp.spritestudio_bridge.info('sample').instance?.playing &&
+      !kag.stat.is_adding_text && kag.ftag.array_tag[kag.ftag.current_order_index]?.name === 'l'; }
+    catch { return false; }
+  });
+  const checkSize = async () => {
+    const rect = await page.locator('.spritestudio-canvas').boundingBox();
+    assert.ok(rect && rect.width > 0 && rect.height > 0, 'Canvas should be visible');
+    assert.ok(Math.abs(rect.width / rect.height - 1280 / 720) < 0.03, 'Game scaling should retain canvas proportions');
+  };
+  await checkSize();
+  if (device === 'mobile') {
+    await page.setViewportSize({ width: 844, height: 390 });
+    await page.waitForTimeout(200);
+    await checkSize();
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.waitForTimeout(200);
+    await checkSize();
+  }
+  await page.screenshot({ path: join(artifactRoot, 'getting-started.png') });
+  if (device === 'mobile') await page.locator('.layer_event_click').tap();
+  else await page.locator('.layer_event_click').click();
+  await page.waitForFunction(() => TYRANO.kag.tmp.spritestudio_bridge.info('sample').instance === null);
+  console.log(`PASS installation example, ${device === 'mobile' ? 'portrait/landscape scaling and touch' : 'click'} input`);
   assert.deepEqual(exceptions, [], `Uncaught errors: ${exceptions.join('\n')}`);
-  await writeFile('artifacts/browser-results.json', JSON.stringify({ passed: true, engine, browser: browser.version(), officialMeshFixture: !!process.env.SS6_TEST_DATA_ROOT, exceptions, messages }, null, 2));
+  await writeFile(join(artifactRoot, 'browser-results.json'), JSON.stringify({ passed: true, engine, browserName, browser: browser.version(), device, simulatedDevice: device === 'mobile', officialMeshFixture: !!process.env.SS6_TEST_DATA_ROOT, exceptions, messages }, null, 2));
   console.log('All browser integration checks passed.');
 } catch (error) {
   console.error('Browser console:', messages);
-  await mkdir('artifacts', { recursive: true });
-  await page.screenshot({ path: 'artifacts/failure.png' });
+  await page.screenshot({ path: join(artifactRoot, 'failure.png') }).catch(() => {});
   throw error;
 } finally {
   await browser.close();

@@ -1,0 +1,318 @@
+{
+  "date": "2026-10-11",
+  "tyrano": "Official V603b",
+  "playwright": "1.58.2",
+  "browserEnvironment": {
+    "chromium": "Debian 13, headless, SwiftShader",
+    "firefox": "Official Playwright Ubuntu 24.04 container, Xvfb, software rendering requested",
+    "webkit": "Debian 13, Playwright GTK MiniBrowser, Xvfb, software rendering requested"
+  },
+  "browserProfiles": [
+    {
+      "passed": true,
+      "browserName": "chromium",
+      "browser": "154.0.8037.57",
+      "device": "desktop",
+      "simulatedDevice": false,
+      "officialMeshFixture": true,
+      "exceptions": []
+    },
+    {
+      "passed": true,
+      "browserName": "chromium",
+      "browser": "154.0.8037.57",
+      "device": "mobile",
+      "simulatedDevice": true,
+      "officialMeshFixture": true,
+      "exceptions": []
+    },
+    {
+      "passed": true,
+      "browserName": "firefox",
+      "browser": "146.0.1",
+      "device": "desktop",
+      "simulatedDevice": false,
+      "officialMeshFixture": true,
+      "exceptions": []
+    },
+    {
+      "passed": true,
+      "browserName": "webkit",
+      "browser": "26.0",
+      "device": "desktop",
+      "simulatedDevice": false,
+      "officialMeshFixture": true,
+      "exceptions": []
+    },
+    {
+      "passed": true,
+      "browserName": "webkit",
+      "browser": "26.0",
+      "device": "mobile",
+      "simulatedDevice": true,
+      "officialMeshFixture": true,
+      "exceptions": []
+    }
+  ],
+  "build": {
+    "node": "20.20.2",
+    "environment": "Official node:20-bookworm-slim container",
+    "passed": [
+      "npm run build",
+      "npm test"
+    ],
+    "unitTests": 3,
+    "bundleBytes": 639227,
+    "bundleMatchesPriorDistribution": true
+  },
+  "soak": {
+    "passed": true,
+    "minutes": 5,
+    "browser": "154.0.8037.57",
+    "nativeMesh": true,
+    "warmupCycles": 20,
+    "motions": [
+      {
+        "pack": "Knight_arrow",
+        "animation": "Arrow_Attack",
+        "totalFrames": 71,
+        "exportedStart": 0,
+        "exportedEnd": 70,
+        "explicitSingleFrame": false
+      },
+      {
+        "pack": "Knight_arrow",
+        "animation": "Setup",
+        "totalFrames": 1,
+        "exportedStart": 0,
+        "exportedEnd": 60,
+        "explicitSingleFrame": true
+      },
+      {
+        "pack": "Knight_bomb",
+        "animation": "Balloon",
+        "totalFrames": 27,
+        "exportedStart": 0,
+        "exportedEnd": 26,
+        "explicitSingleFrame": false
+      },
+      {
+        "pack": "Knight_bomb",
+        "animation": "Bomb_Attack",
+        "totalFrames": 85,
+        "exportedStart": 0,
+        "exportedEnd": 84,
+        "explicitSingleFrame": false
+      },
+      {
+        "pack": "Knight_bomb",
+        "animation": "Dribble",
+        "totalFrames": 85,
+        "exportedStart": 0,
+        "exportedEnd": 19,
+        "explicitSingleFrame": false
+      },
+      {
+        "pack": "Knight_bomb",
+        "animation": "Setup",
+        "totalFrames": 1,
+        "exportedStart": 0,
+        "exportedEnd": 60,
+        "explicitSingleFrame": true
+      },
+      {
+        "pack": "Knight_lance",
+        "animation": "Lance_Attack",
+        "totalFrames": 64,
+        "exportedStart": 0,
+        "exportedEnd": 63,
+        "explicitSingleFrame": false
+      },
+      {
+        "pack": "Knight_lance",
+        "animation": "Setup",
+        "totalFrames": 1,
+        "exportedStart": 0,
+        "exportedEnd": 60,
+        "explicitSingleFrame": true
+      }
+    ],
+    "cycles": 556,
+    "reloads": 11,
+    "resets": 22,
+    "retainedHeapGrowthBytes": 1588824,
+    "samples": [
+      {
+        "elapsedSeconds": 0,
+        "cycles": 0,
+        "reloads": 0,
+        "resets": 0,
+        "heapBytes": 6335128,
+        "domNodes": 193,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 12,
+        "actorFrame": 6
+      },
+      {
+        "elapsedSeconds": 30,
+        "cycles": 58,
+        "reloads": 1,
+        "resets": 2,
+        "heapBytes": 7063680,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 11,
+        "actorFrame": 1
+      },
+      {
+        "elapsedSeconds": 61,
+        "cycles": 114,
+        "reloads": 2,
+        "resets": 4,
+        "heapBytes": 7202392,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 27,
+        "actorFrame": 3
+      },
+      {
+        "elapsedSeconds": 91,
+        "cycles": 171,
+        "reloads": 3,
+        "resets": 6,
+        "heapBytes": 7654112,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 33,
+        "actorFrame": 1
+      },
+      {
+        "elapsedSeconds": 121,
+        "cycles": 227,
+        "reloads": 4,
+        "resets": 9,
+        "heapBytes": 7555988,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 36,
+        "actorFrame": 5
+      },
+      {
+        "elapsedSeconds": 152,
+        "cycles": 285,
+        "reloads": 5,
+        "resets": 11,
+        "heapBytes": 7765980,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 38,
+        "actorFrame": 0
+      },
+      {
+        "elapsedSeconds": 182,
+        "cycles": 342,
+        "reloads": 6,
+        "resets": 13,
+        "heapBytes": 7871620,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 25,
+        "actorFrame": 2
+      },
+      {
+        "elapsedSeconds": 212,
+        "cycles": 399,
+        "reloads": 7,
+        "resets": 15,
+        "heapBytes": 7997920,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 11,
+        "actorFrame": 0
+      },
+      {
+        "elapsedSeconds": 243,
+        "cycles": 453,
+        "reloads": 9,
+        "resets": 18,
+        "heapBytes": 7965724,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 54,
+        "actorFrame": 0
+      },
+      {
+        "elapsedSeconds": 273,
+        "cycles": 508,
+        "reloads": 10,
+        "resets": 20,
+        "heapBytes": 7904648,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 51,
+        "actorFrame": 3
+      },
+      {
+        "elapsedSeconds": 300,
+        "cycles": 556,
+        "reloads": 11,
+        "resets": 22,
+        "heapBytes": 7923952,
+        "domNodes": 199,
+        "canvases": 1,
+        "assets": 2,
+        "instances": 2,
+        "surfaces": 1,
+        "logoFrame": 46,
+        "actorFrame": 13
+      }
+    ],
+    "exceptions": [],
+    "graphicsErrors": [],
+    "limits": "Linux software rendering; JS heap after GC only. GPU memory and hours-long play are not measured."
+  },
+  "studio": {
+    "version": "603",
+    "environment": "Official unmodified Windows binary on Linux Wine 10.0",
+    "result": "inconclusive",
+    "reason": "Wine stack overflow; preview/export operations not verified"
+  },
+  "limits": [
+    "Linux only; Windows/macOS and Safari product unverified",
+    "Mobile emulation is not physical iOS/Android verification",
+    "Viewport resizing is not a device rotation event",
+    "No hardware GPU performance or GPU memory measurement",
+    "Five minutes does not establish hours-long stability",
+    "Game-specific masks/effects/blends and independent instance timing unverified"
+  ]
+}
