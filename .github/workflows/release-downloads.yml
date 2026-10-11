@@ -1,0 +1,86 @@
+name: Attach release downloads
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag (for example, v0.1.1)
+        required: true
+        default: v0.1.1
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-downloads-${{ inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify and attach committed distribution files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+          RELEASE_SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          import tempfile
+
+          repository = os.environ['RELEASE_REPOSITORY']
+          tag = os.environ['RELEASE_TAG']
+          commit = os.environ['RELEASE_SOURCE_COMMIT']
+          if not re.fullmatch(r'v\d+\.\d+\.\d+', tag):
+              raise SystemExit('Use a release tag such as v0.1.1.')
+          version = tag[1:]
+          names = [f'tyrano-spritestudio-{version}.zip',
+                   f'tyrano-spritestudio-{version}-source.zip', 'SHA256SUMS.txt']
+          release = json.loads(subprocess.check_output([
+              'gh', 'api', f'repos/{repository}/releases/tags/{tag}']))
+          existing = {asset['name'] for asset in release['assets']}
+          if existing.intersection(names):
+              raise SystemExit('Distribution files are already attached. This workflow does not overwrite them.')
+
+          def fetch(path):
+              return subprocess.check_output([
+                  'gh', 'api', f'repos/{repository}/contents/{path}?ref={commit}',
+                  '-H', 'Accept: application/vnd.github.raw+json'])
+
+          with tempfile.TemporaryDirectory() as directory:
+              folder = Path(directory)
+              for name in names:
+                  (folder / name).write_bytes(fetch(f'releases/{tag}/{name}'))
+              checks = {}
+              for line in (folder / 'SHA256SUMS.txt').read_text().splitlines():
+                  digest, name = line.split('  ', 1)
+                  checks[name] = digest
+              if set(checks) != set(names[:2]):
+                  raise SystemExit('The checksum file must list exactly the two distribution ZIPs.')
+              for name in names[:2]:
+                  if hashlib.sha256((folder / name).read_bytes()).hexdigest() != checks[name]:
+                      raise SystemExit(f'Checksum mismatch: {name}')
+
+              notes = fetch('docs/RELEASE.md').decode('utf-8')
+              if not notes.startswith(f'# Tyrano SpriteStudio Bridge {tag}\n'):
+                  raise SystemExit('Release notes must match the requested version.')
+              notes = notes.replace('/blob/main/', f'/blob/{commit}/')
+              notes_file = folder / 'release-notes.md'
+              notes_file.write_text(notes, encoding='utf-8')
+              subprocess.run(['gh', 'release', 'upload', tag,
+                              *(str(folder / name) for name in names),
+                              '--repo', repository], check=True)
+              subprocess.run(['gh', 'release', 'edit', tag, '--repo', repository,
+                              '--notes-file', str(notes_file)], check=True)
+              print(f'Attached both ZIPs and optional checksums to {tag}. Source commit: {commit}')
+          PY

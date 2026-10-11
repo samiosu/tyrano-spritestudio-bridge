@@ -66,6 +66,11 @@ gh release upload v0.1.1 \
   --repo samiosu/tyrano-spritestudio-bridge
 ```
 
+GitHub Actionsから添付する場合は、「Actions」→「Attach release downloads」→「Run workflow」で、
+ブランチ `main` と対象のタグを選びます。
+このワークフローは、コミット済みの配布ZIPとハッシュを照合して既存のReleaseへ添付し、説明文も更新します。
+ビルドやゲームの実行テストは行いません。既に同名の添付ファイルがある場合は、上書きせずに停止します。
+
 その後、Releaseの説明とダウンロードリンクを更新します。
 添付ファイルへのリンクは `/releases/download/<タグ>/<ファイル名>` の形式を使用します。
 資料は `/blob/<コミット>/<パス>` の形式で、配布物と一致するコミットに固定します。

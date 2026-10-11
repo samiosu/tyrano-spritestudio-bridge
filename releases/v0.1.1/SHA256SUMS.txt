@@ -1,2 +1,2 @@
-4c8db902e416f3646cd281b35e0e21aecd9432746875a92d8251a1ce81bec118  tyrano-spritestudio-0.1.1.zip
-d6af0c0994eb80880427eb1e6e7e9dd4901c31e2beb6b1f2a202699c6da54fc9  tyrano-spritestudio-0.1.1-source.zip
+9fe87c5f94bba8beda5e0cdb3c7b7670678278544d637b38258861bf3c52c25f  tyrano-spritestudio-0.1.1.zip
+a48f0aabe0b4f6419af3af83c708ef62f049ff1559010278afc19ff9cf392342  tyrano-spritestudio-0.1.1-source.zip
