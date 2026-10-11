@@ -55,9 +55,9 @@ ZIP内の docs/USAGE.md も、テキスト編集ソフトで読めます。
 
 対応環境
 
-ティラノスクリプトV603bを、Linux環境のChromium・Firefox・WebKitで確認しています。
-スマートフォン画面の模擬操作も確認済みです。
-Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者による確認）。
+Codexが、ティラノスクリプトV603bの動作をLinux環境のChromium・Firefox・WebKitで確認しました。
+スマートフォン画面の模擬操作もCodexが確認しました。
+Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者さみおすによる確認）。
 Windows・macOSのブラウザ、スマートフォン実機、書き出したPCアプリは未確認です。
 検証した内容は docs/VALIDATION.md に記載しています。
 詳しい設定は docs/TAGS.md、内部仕様は docs/DEVELOPMENT.md を参照してください。

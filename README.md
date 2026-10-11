@@ -60,9 +60,9 @@ ZIPに入っている [はじめに.txt](はじめに.txt) でも導入手順を
 
 ## 対応環境
 
-ティラノスクリプト **V603b** を、Linux環境のChromium・Firefox・WebKitで確認しています。
-スマートフォン画面の模擬操作も確認済みです。
-Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者による確認）。
+Codexが、ティラノスクリプト **V603b** の動作をLinux環境のChromium・Firefox・WebKitで確認しました。
+スマートフォン画面の模擬操作もCodexが確認しました。
+Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者さみおすによる確認）。
 Windows・macOSのブラウザ、スマートフォン実機、書き出したPCアプリは未確認です。
 詳しい確認結果は [検証記録](docs/VALIDATION.md) にあります。
 

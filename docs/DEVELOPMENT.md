@@ -86,7 +86,7 @@ SpriteStudioの状態がないセーブデータをロードした場合は、�
 デバッグメニュー有効時はティラノのエラー表示も利用します。
 素材名・モーション名・現在状態は `[ss_info]` で取得できます。形式は [タグ一覧](TAGS.md#ss_info) を参照してください。
 
-ティラノスクリプトV603bのHTTP配信環境で、Chromium 154.0.8037.57、Firefox 146.0.1、WebKit 26.0を検証しました。
+Codexが、ティラノスクリプトV603bのHTTP配信環境で、Chromium 154.0.8037.57、Firefox 146.0.1、WebKit 26.0を検証しました。
 いずれもLinuxで実行しています。Chromium・WebKitではスマートフォン画面の模擬操作も確認しました。
 作者さみおすにより、Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです。
 WebGL対応ブラウザが必要です。`file://` でHTMLを直接開く方法は対象に含めません。
@@ -100,7 +100,7 @@ V5、Windows・macOSのブラウザ、Safari実機、スマートフォン実機
 ## ビルド
 
 Node.js 20以上を使用してください。配布ZIPの生成にはPython 3も必要です。
-Node.js 20.20.2でビルドとユニットテストが通り、既存の配布版と同一のJavaScriptを生成することを確認しました。
+CodexがNode.js 20.20.2でビルドとユニットテストを実行し、既存の配布版と同一のJavaScriptを生成することを確認しました。
 `.mjs` は開発用です。ゲームは `init.ks` から通常の `[loadjs]` でビルド済み `spritestudio.js` を読み込みます。
 
 ```sh

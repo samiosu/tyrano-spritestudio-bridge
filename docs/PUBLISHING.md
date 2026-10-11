@@ -20,9 +20,9 @@ GitHubのIssue・Pull Requestには対応する場合があります。返信・
 解凍したら、最初に「**はじめに.txt**」を開いてください。
 
 自分の素材は、公式のSs6Converterで変換した `.ssfb` と、その素材に使う画像を用意してください。
-ティラノスクリプトV603bを、Linux環境のChromium・Firefox・WebKitで確認しています。
-スマートフォン画面の模擬操作も確認済みです。
-Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者による確認）。
+Codexが、ティラノスクリプトV603bの動作をLinux環境のChromium・Firefox・WebKitで確認しました。
+スマートフォン画面の模擬操作もCodexが確認しました。
+Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者さみおすによる確認）。
 Windows・macOSのブラウザ、スマートフォン実機、書き出したPCアプリは未確認です。
 
 作者：さみおす／ライセンス：MIT（連携コード・独自サンプル）

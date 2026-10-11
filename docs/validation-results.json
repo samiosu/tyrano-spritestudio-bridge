@@ -15,7 +15,8 @@
       "device": "desktop",
       "simulatedDevice": false,
       "officialMeshFixture": true,
-      "exceptions": []
+      "exceptions": [],
+      "performedBy": "Codex"
     },
     {
       "passed": true,
@@ -24,7 +25,8 @@
       "device": "mobile",
       "simulatedDevice": true,
       "officialMeshFixture": true,
-      "exceptions": []
+      "exceptions": [],
+      "performedBy": "Codex"
     },
     {
       "passed": true,
@@ -33,7 +35,8 @@
       "device": "desktop",
       "simulatedDevice": false,
       "officialMeshFixture": true,
-      "exceptions": []
+      "exceptions": [],
+      "performedBy": "Codex"
     },
     {
       "passed": true,
@@ -42,7 +45,8 @@
       "device": "desktop",
       "simulatedDevice": false,
       "officialMeshFixture": true,
-      "exceptions": []
+      "exceptions": [],
+      "performedBy": "Codex"
     },
     {
       "passed": true,
@@ -51,7 +55,8 @@
       "device": "mobile",
       "simulatedDevice": true,
       "officialMeshFixture": true,
-      "exceptions": []
+      "exceptions": [],
+      "performedBy": "Codex"
     }
   ],
   "build": {
@@ -63,7 +68,8 @@
     ],
     "unitTests": 3,
     "bundleBytes": 639227,
-    "bundleMatchesPriorDistribution": true
+    "bundleMatchesPriorDistribution": true,
+    "performedBy": "Codex"
   },
   "soak": {
     "passed": true,
@@ -299,13 +305,15 @@
     ],
     "exceptions": [],
     "graphicsErrors": [],
-    "limits": "Linux software rendering; JS heap after GC only. GPU memory and hours-long play are not measured."
+    "limits": "Linux software rendering; JS heap after GC only. GPU memory and hours-long play are not measured.",
+    "performedBy": "Codex"
   },
   "studio": {
     "version": "603",
     "environment": "Official unmodified Windows binary on Linux Wine 10.0",
     "result": "inconclusive",
-    "reason": "Wine stack overflow; preview/export operations not verified"
+    "reason": "Wine stack overflow; preview/export operations not verified",
+    "performedBy": "Codex"
   },
   "authorReportedChecks": [
     {
@@ -335,5 +343,15 @@
     "No hardware GPU performance or GPU memory measurement",
     "Five minutes does not establish hours-long stability",
     "Game-specific masks/effects/blends and independent instance timing unverified"
-  ]
+  ],
+  "distributionAndDocumentationChecks": {
+    "performedBy": "Codex",
+    "checks": [
+      "Distribution ZIP contents and CRC integrity",
+      "Case-insensitive filename collision resolution",
+      "Dependency license terms and redistribution notices",
+      "Preservation of complete bundled license texts",
+      "GitHub Markdown rendering"
+    ]
+  }
 }
