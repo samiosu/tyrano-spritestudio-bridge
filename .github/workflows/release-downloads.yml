@@ -30,6 +30,7 @@ jobs:
           RELEASE_SOURCE_COMMIT: ${{ github.sha }}
         run: |
           python3 - <<'PY'
+          import base64
           import hashlib
           import json
           import os
@@ -53,9 +54,11 @@ jobs:
               raise SystemExit('Distribution files are already attached. This workflow does not overwrite them.')
 
           def fetch(path):
-              return subprocess.check_output([
-                  'gh', 'api', f'repos/{repository}/contents/{path}?ref={commit}',
-                  '-H', 'Accept: application/vnd.github.raw+json'])
+              response = json.loads(subprocess.check_output([
+                  'gh', 'api', f'repos/{repository}/contents/{path}?ref={commit}']))
+              if response.get('type') != 'file' or response.get('encoding') != 'base64':
+                  raise SystemExit(f'Expected a Base64-encoded repository file: {path}')
+              return base64.b64decode(response['content'])
 
           with tempfile.TemporaryDirectory() as directory:
               folder = Path(directory)
