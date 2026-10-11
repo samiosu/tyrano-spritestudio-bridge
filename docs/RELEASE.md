@@ -8,7 +8,7 @@
 [**利用者向けZIPをダウンロード**](https://github.com/samiosu/tyrano-spritestudio-bridge/raw/main/releases/v0.1.0/tyrano-spritestudio-0.1.0.zip)
 
 上のリンクからZIPを保存し、解凍してください。
-最初に **「はじめに.txt」**を開くと、コピー先と貼り付ける行が分かります。
+最初に「**はじめに.txt**」を開くと、コピー先と貼り付ける行が分かります。
 
 ## 導入は3ステップ
 
