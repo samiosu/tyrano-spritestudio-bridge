@@ -7,7 +7,7 @@ const run = promisify(execFile);
 const { version } = JSON.parse(await readFile('package.json', 'utf8'));
 await readFile('data/others/plugin/spritestudio/spritestudio.js');
 await mkdir('dist', { recursive: true });
-const common = ['data', 'examples', 'docs', 'README.md', 'LICENSE', 'CHANGELOG.md'];
+const common = ['data', 'examples', 'docs', 'はじめに.txt', 'README.md', 'LICENSE', 'CHANGELOG.md'];
 const source = [...common, 'src', 'scripts', 'tests', 'vendor', 'package.json', 'package-lock.json', '.gitignore'];
 const names = [];
 const code = `import sys, json, pathlib, zipfile

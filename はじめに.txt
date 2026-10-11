@@ -1,0 +1,70 @@
+Tyrano SpriteStudio Bridge v0.1.0（非公式）
+ティラノスクリプトV6でSpriteStudioのアニメーションを表示するプラグインです。
+作者：さみおす
+
+まず、同梱の青い図形を動かしてみましょう。
+
+1. フォルダーをコピーする
+
+ゲームのフォルダーを開き、ZIPの中の次のフォルダーをコピーします。
+コピー先のフォルダーがない場合は作成してください。
+
+  ZIP：data/others/plugin/spritestudio
+    → ゲーム：data/others/plugin/spritestudio
+
+  ZIP：data/others/spritestudio
+    → ゲーム：data/others/spritestudio
+
+pluginの中のspritestudioは本体、もう一方のspritestudioは素材です。
+
+2. サンプルを貼り付ける
+
+ゲームの data/scenario/first.ks をテキスト編集ソフトで開きます。
+最初の [s] や [jump] より前に、次の6行を貼り付けて保存してください。
+
+[plugin name="spritestudio"]
+[ss_load name="sample" storage="demo/demo.ssfb"]
+[ss_show name="sample" pack="demo" animation="idle" x="320" y="240"]
+[layopt layer="message0" visible="true"]
+青い図形が動けば導入できています。[l]
+[ss_remove name="sample"]
+
+3. セーブ・ロード用の2行を追加する
+
+ゲームの data/scenario/make.ks を開きます。
+既にある内容を残して、最後の [return] の直前に次の2行を追加してください。
+
+[plugin name="spritestudio"]
+[ss_restore]
+
+make.ks がない場合は、ZIPの examples/make.ks をゲームの data/scenario/ へコピーしてください。
+
+動いたら導入完了
+
+ゲームを起動すると、青い図形が繰り返し動きます。
+文章をクリックすると図形が消え、元のシナリオへ進みます。
+ブラウザ版はゲームの公開URLか、ブラウザ向けプレビューで起動してください。
+index.html をダブルクリックして直接開く方法には対応していません。
+
+自分の素材や、位置・大きさの変更は、ブラウザで読める使い方ガイドに例があります。
+https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/USAGE.md
+ZIP内の docs/USAGE.md も、テキスト編集ソフトで読めます。
+
+青い図形が出ないときは、上の2つのフォルダーのコピー先を確認してください。
+ロード後に消えるときは、make.ksへの2行の追加を確認してください。
+
+対応環境
+
+ティラノスクリプトV603bのブラウザ版（Chromium 154）で確認しています。
+ティラノスタジオ、PCアプリ、スマートフォンなど、その他の環境は未確認です。
+詳しい設定は docs/TAGS.md、内部仕様は docs/DEVELOPMENT.md を参照してください。
+
+ライセンス・サポート
+
+連携コードと独自サンプルはMIT Licenseです。
+同梱ライブラリにはそれぞれの条件があります。再配布時もlicensesフォルダーを含めてください。
+SpriteStudioの利用条件と、ご自身が使う素材の権利も確認してください。
+このプラグインは非公式で、各ソフトウェア提供元の認定を表すものではありません。
+
+個別サポート・導入支援は提供しません。
+GitHubのIssue・Pull Requestには対応する場合があります。返信・対応は保証しません。
