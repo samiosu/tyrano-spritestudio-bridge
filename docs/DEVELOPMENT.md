@@ -88,8 +88,9 @@ SpriteStudioの状態がないセーブデータをロードした場合は、�
 
 ティラノスクリプトV603bのHTTP配信環境で、Chromium 154.0.8037.57、Firefox 146.0.1、WebKit 26.0を検証しました。
 いずれもLinuxで実行しています。Chromium・WebKitではスマートフォン画面の模擬操作も確認しました。
+作者さみおすにより、Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです。
 WebGL対応ブラウザが必要です。`file://` でHTMLを直接開く方法は対象に含めません。
-V5、Windows・macOS、Safari実機、スマートフォン実機、ティラノスタジオ、各OS向けパッケージは未検証です。
+V5、Windows・macOSのブラウザ、Safari実機、スマートフォン実機、各OS向けパッケージは未検証です。
 詳しい結果は [検証記録](VALIDATION.md) を参照してください。
 
 公式Knightデータの `Setup` は1フレームですが、出力された終了フレームが60になっています。

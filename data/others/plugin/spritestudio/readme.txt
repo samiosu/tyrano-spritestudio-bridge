@@ -43,7 +43,9 @@ https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/USAGE.md
 詳しい設定は docs/TAGS.md、内部仕様は docs/DEVELOPMENT.md を参照してください。
 
 ティラノスクリプトV603bを、Linux環境のChromium・Firefox・WebKitで確認しています。
-スマートフォン画面の模擬操作も確認済みです。Windows・macOS、スマートフォン実機、ティラノスタジオ、PCアプリは未確認です。
+スマートフォン画面の模擬操作も確認済みです。
+Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者による確認）。
+Windows・macOSのブラウザ、スマートフォン実機、書き出したPCアプリは未確認です。
 
 同梱ライブラリにはそれぞれの条件があります。再配布時もlicensesフォルダーを含めてください。
 SpriteStudioの利用条件と、ご自身が使う素材の権利も確認してください。

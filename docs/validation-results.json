@@ -307,8 +307,29 @@
     "result": "inconclusive",
     "reason": "Wine stack overflow; preview/export operations not verified"
   },
+  "authorReportedChecks": [
+    {
+      "reportedDate": "2026-10-11",
+      "reportedBy": "さみおす",
+      "application": "TyranoStudio",
+      "applicationVersion": "6.0.0",
+      "operatingSystem": "Windows 11",
+      "executionMethod": "TyranoStudio built-in game playback",
+      "result": "execution_confirmed",
+      "data": [
+        {
+          "source": "Plugin distribution",
+          "description": "Bundled data"
+        },
+        {
+          "source": "Official SpriteStudio sample data"
+        }
+      ],
+      "details": "Manual execution confirmed by the author using TyranoStudio's built-in game playback with the two data sources listed above."
+    }
+  ],
   "limits": [
-    "Linux only; Windows/macOS and Safari product unverified",
+    "Automated checks ran on Linux only; Windows/macOS browsers and Safari product unverified",
     "Mobile emulation is not physical iOS/Android verification",
     "Viewport resizing is not a device rotation event",
     "No hardware GPU performance or GPU memory measurement",
