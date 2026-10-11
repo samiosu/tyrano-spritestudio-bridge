@@ -5,7 +5,10 @@ SS6PlayerForWebを使い、`.ssfb` をティラノのタグから表示・操作
 バージョンは **0.1.0** です。
 
 作者：**さみおす**。連携コードと独自サンプルのライセンスは **MIT** です。
-**サポートは行いません。** 問い合わせ対応・導入支援は提供しません。
+個別サポート・導入支援は提供しません。
+GitHubの[Issue](https://github.com/samiosu/tyrano-spritestudio-bridge/issues)・
+[Pull Request](https://github.com/samiosu/tyrano-spritestudio-bridge/pulls)には対応する場合があります。
+返信・対応は保証しません。
 
 ## できること
 

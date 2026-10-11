@@ -2,7 +2,8 @@ Tyrano SpriteStudio Bridge v0.1.0（非公式）
 
 作者：さみおす
 ライセンス：MIT（連携コード・独自サンプル）
-サポートは行いません。問い合わせ対応・導入支援は提供しません。
+個別サポート・導入支援は提供しません。
+GitHubのIssue・Pull Requestには対応する場合があります。返信・対応は保証しません。
 
 SpriteStudioの変換済みSSFBを、ティラノスクリプトV6のタグから表示・操作します。
 検証環境：V603b / Chromium 154 / HTTP配信。
