@@ -2,13 +2,13 @@
 
 **ティラノスクリプトV6で、SpriteStudioのアニメーションを表示する非公式プラグインです。**
 フォルダーのコピーと、シナリオへの数行の追記で使えます。同梱のサンプルで、まず動作を試せます。
-バージョン：**0.1.0**／作者：**さみおす**
+バージョン：**0.1.1**／作者：**さみおす**
 
 ## ダウンロード
 
-[**利用者向けZIPをダウンロード**](https://github.com/samiosu/tyrano-spritestudio-bridge/raw/main/releases/v0.1.0/tyrano-spritestudio-0.1.0.zip)して、解凍してください。
+[**利用者向けZIPをダウンロード**](https://github.com/samiosu/tyrano-spritestudio-bridge/raw/main/releases/v0.1.1/tyrano-spritestudio-0.1.1.zip)して、解凍してください。
 ZIPに入っている [はじめに.txt](はじめに.txt) でも導入手順を読めます。
-[リリース情報・ソースZIP](https://github.com/samiosu/tyrano-spritestudio-bridge/releases/tag/v0.1.0) は、こちらから確認できます。
+[リリース情報・ソースZIP](https://github.com/samiosu/tyrano-spritestudio-bridge/releases/tag/v0.1.1) は、こちらから確認できます。
 
 ## 導入は3ステップ
 
@@ -60,6 +60,7 @@ ZIPに入っている [はじめに.txt](はじめに.txt) でも導入手順を
 
 ## 対応環境
 
+次の動作確認は0.1.0の結果です。0.1.1では終了待ちを修正し、変更後の実行テストは行っていません。
 Codexが、ティラノスクリプト **V603b** の動作をLinux環境のChromium・Firefox・WebKitで確認しました。
 スマートフォン画面の模擬操作もCodexが確認しました。
 Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者さみおすによる確認）。
@@ -83,4 +84,5 @@ GitHubの[Issue](https://github.com/samiosu/tyrano-spritestudio-bridge/issues)�
 - [タグ一覧](docs/TAGS.md)：使える命令と、細かな設定
 - [内部仕様・開発手順](docs/DEVELOPMENT.md)：構成、セーブ復元、制限、ビルド、配布ZIPの確認
 - [検証記録](docs/VALIDATION.md)：検証した環境と動作
+- [公開前の最終確認](docs/FINAL-REVIEW.md)：ライセンス・コードの静的レビューと修正内容
 - [公開・配布用資料](docs/PUBLISHING.md)：配布ページの説明文と公開手順

@@ -147,6 +147,9 @@ export class Manager {
     player.SetAnimationSpeed(speed, true);
     player.SetAnimationSection(first, final, loop);
     player.SetPlayEndCallback(() => {
+      // Upstream also reports intermediate wraps in a finite loop. Only the
+      // final wrap stops playback and should release scenario waiters.
+      if (player.isPlaying) return;
       // Upstream rewinds to the first frame. Defer SetFrame until its current
       // update has finished, and leave the terminal pose visible.
       queueMicrotask(() => {

@@ -1,4 +1,4 @@
-Tyrano SpriteStudio Bridge v0.1.0（非公式）
+Tyrano SpriteStudio Bridge v0.1.1（非公式）
 ティラノスクリプトV6で、SpriteStudioのアニメーションを表示します。
 作者：さみおす／ライセンス：MIT（連携コード・独自サンプル）
 
@@ -42,6 +42,7 @@ index.htmlをダブルクリックして直接開く方法には対応してい�
 https://github.com/samiosu/tyrano-spritestudio-bridge/blob/main/docs/USAGE.md
 詳しい設定は docs/TAGS.md、内部仕様は docs/DEVELOPMENT.md を参照してください。
 
+次の動作確認は0.1.0の結果です。0.1.1では終了待ちを修正し、変更後の実行テストは行っていません。
 Codexが、ティラノスクリプトV603bの動作をLinux環境のChromium・Firefox・WebKitで確認しました。
 スマートフォン画面の模擬操作もCodexが確認しました。
 Windows 11・TyranoStudio Ver6.0.0のゲーム再生機能で、配布ZIPの同梱データとSpriteStudio公式サンプルデータの実行も確認済みです（作者さみおすによる確認）。

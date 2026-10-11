@@ -57,6 +57,6 @@ function install(kag: any): Manager {
 }
 
 if (!window.TyranoSpriteStudio) {
-  window.TyranoSpriteStudio = { version: '0.1.0', install };
+  window.TyranoSpriteStudio = { version: '0.1.1', install };
 }
 window.TyranoSpriteStudio.install(window.TYRANO.kag);

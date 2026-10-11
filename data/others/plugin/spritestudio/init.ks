@@ -1,4 +1,4 @@
-; Tyrano SpriteStudio Bridge 0.1.0
+; Tyrano SpriteStudio Bridge 0.1.1
 [if exp="typeof window.TyranoSpriteStudio === 'undefined'"]
 [loadjs storage="plugin/spritestudio/spritestudio.js"]
 [endif]
