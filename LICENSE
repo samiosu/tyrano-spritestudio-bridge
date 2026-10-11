@@ -19,7 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Third-party code under vendor/ss6player and the dependencies bundled into
-data/others/plugin/spritestudio/spritestudio.js retain their respective
-licenses. See vendor/ss6player/LICENSE and the plugin's licenses directory.
