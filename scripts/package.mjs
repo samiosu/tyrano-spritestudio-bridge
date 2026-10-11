@@ -17,9 +17,16 @@ files = []
 for selected_path in selected:
     p = pathlib.Path(selected_path)
     files.extend(p.rglob('*') if p.is_dir() else [p])
+files = sorted({p for p in files if p.is_file()})
+paths_by_case = {}
+for p in files:
+    path = p.as_posix()
+    key = path.casefold()
+    if key in paths_by_case:
+        raise ValueError(f'ZIP paths conflict on Windows: {paths_by_case[key]} and {path}')
+    paths_by_case[key] = path
 with zipfile.ZipFile(dest, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-    for p in sorted(set(files)):
-        if not p.is_file(): continue
+    for p in files:
         info = zipfile.ZipInfo(p.as_posix(), (2026, 10, 11, 0, 0, 0))
         info.external_attr = 0o100644 << 16
         info.compress_type = zipfile.ZIP_DEFLATED

@@ -111,6 +111,7 @@ npm run package
 
 `npm run build` は、JavaScript、ライセンス、独自サンプルを生成します。
 `npm run package` の出力先は `dist/` です。ZIPから開発する場合はソースZIPを使用してください。
+Windowsでの解凍時に競合する、大文字・小文字だけが異なるパスがある場合は、ZIP作成をエラーで停止します。
 
 ## ブラウザでの統合テスト
 

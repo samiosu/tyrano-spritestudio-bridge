@@ -21,12 +21,7 @@ await build({
   legalComments: 'eof',
   banner: { js: '/*! Tyrano SpriteStudio Bridge 0.1.0 | Copyright (c) 2026 さみおす | MIT | Third-party licenses: ./licenses/ */' },
 });
-for (const [name, path] of [
-  ['PixiJS.txt', 'node_modules/pixi.js/LICENSE'],
-  ['FlatBuffers.txt', 'node_modules/flatbuffers/LICENSE'],
-]) {
-  await copyFile(path, `${output}/licenses/${name}`);
-}
+await copyFile('node_modules/pixi.js/LICENSE', `${output}/licenses/PixiJS.txt`);
 await copyFile('LICENSE', `${output}/licenses/Bridge-MIT.txt`);
 await copyFile('vendor/licenses/colord.txt', `${output}/licenses/pixi-colord.txt`);
 const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));
