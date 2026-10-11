@@ -1,0 +1,23 @@
+{
+  "name": "tyrano-spritestudio-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SpriteStudio animations for TyranoScript using SS6PlayerForWeb",
+  "author": "さみおす",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/parameters.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "pixi.js": "8.17.0",
+    "flatbuffers": "25.9.23"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "playwright-core": "1.58.2"
+  }
+}
